@@ -3,8 +3,8 @@ const github = require('@actions/github');
 
 try {
     // `who-to-greet` input defined in action metadata file
-    const changedFiled = core.getInput('changed-files');
-    console.log(`changedFiled ${JSON.stringify(changedFiled)}`);
+    const changedFiles = core.getInput('changed-files');
+    console.log(`changedFiles ${JSON.stringify(changedFiles)}`);
 
     let sfFilePaths = [];
     changedFiles.forEach(filePath => {
@@ -13,8 +13,8 @@ try {
     });
 
     console.log(sfFilePaths.join(','));
-    
     core.setOutput("files-to-deploy", sfFilePaths.join(','));
+
     // Get the JSON webhook payload for the event that triggered the workflow
     const payload = JSON.stringify(github.context.payload, undefined, 2)
     console.log(`The event payload: ${payload}`);
