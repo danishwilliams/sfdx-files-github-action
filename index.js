@@ -13,11 +13,11 @@ try {
     let sfFilePaths = [];
     let sfTestFilePaths = [];
     allFiles.forEach(filePath => {
-        if (filePath.indexOf('force-app/main/default') === 0)
+        if (filePath.indexOf('force-app/main/default') === 0 && !sfFilePaths.find(path => path === filePath))
             sfFilePaths.push(filePath);
 
         var filename = filePath.split("/").pop();
-        if (filename.toLowerCase().includes('test') && filename.endsWith('.cls'))
+        if (filename.toLowerCase().includes('test') && filename.endsWith('.cls') && !sfTestFilePaths.find(path => path === filePath))
             sfTestFilePaths.push(filePath);
     });
 
