@@ -16,7 +16,7 @@ try {
         if (filePath.indexOf('force-app/main/default') === 0)
             sfFilePaths.push(filePath);
 
-        var filename = filePath.replace(/^.*[\\\/]/, '');
+        var filename = filePath.split("/").pop();
         if (filename.toLowerCase().includes('test') && filename.endsWith('.cls'))
             sfTestFilePaths.push(filePath);
     });
