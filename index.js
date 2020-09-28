@@ -17,8 +17,12 @@ try {
             sfFilePaths.push(filePath);
 
         var filename = filePath.split("/").pop();
-        if (filename.toLowerCase().includes('test') && filename.endsWith('.cls') && !sfTestNames.find(path => path === filePath))
-            sfTestNames.push(filename.replace('.cls', ''));
+        if (filename.toLowerCase().includes('test') && filename.endsWith('.cls')){
+            var testName = filename.replace('.cls', '');
+            if (!sfTestNames.find(item => item === testName))
+                sfTestNames.push(testName);
+        }
+            
     });
 
     var sfFilePathsComma = sfFilePaths.join(',')
