@@ -3,7 +3,15 @@ description: 'Greet someone and record the time'
 inputs:
   changed-files:  # id of input
     description: 'List of changed files'
-    required: true
+    required: false
+    default: ''
+  added-files:  # id of input
+    description: 'List of added files'
+    required: false
+    default: ''
+  renamed-files:  # id of input
+    description: 'List of renamed files'
+    required: false
     default: ''
 outputs:
   files-to-deploy: # id of output
