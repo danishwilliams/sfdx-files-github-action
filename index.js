@@ -17,7 +17,7 @@ try {
             sfFilePaths.push(filePath);
 
         var filename = filePath.replace(/^.*[\\\/]/, '');
-        if (filename.toLowerCase().includes('test'))
+        if (filename.toLowerCase().includes('test') && filename.endsWith('.cls'))
             sfTestFilePaths.push(filePath);
     });
 
