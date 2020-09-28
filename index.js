@@ -4,7 +4,8 @@ const github = require('@actions/github');
 try {
     // `who-to-greet` input defined in action metadata file
     const changedFiles = core.getInput('changed-files');
-    console.log(`changedFiles ${JSON.stringify(changedFiles)}`);
+    console.log(`changedFiles json ${JSON.stringify(changedFiles)}`);
+    console.log('changedFiles raw', changedFiles);
 
     let sfFilePaths = [];
     changedFiles.forEach(filePath => {
