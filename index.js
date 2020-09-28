@@ -17,7 +17,7 @@ try {
             sfFilePaths.push(filePath);
 
         var filename = filePath.replace(/^.*[\\\/]/, '');
-        if (filename.toLower().includes('test'))
+        if (filename.toLowerCase().includes('test'))
             sfTestFilePaths.push(filePath);
     });
 
