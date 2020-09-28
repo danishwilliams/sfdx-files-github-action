@@ -1,0 +1,13 @@
+name: 'Hello World'
+description: 'Greet someone and record the time'
+inputs:
+  changed-files:  # id of input
+    description: 'List of changed files'
+    required: true
+    default: ''
+outputs:
+  files-to-deploy: # id of output
+    description: 'List of changed Salesforce files'
+runs:
+  using: 'node12'
+  main: 'index.js'
