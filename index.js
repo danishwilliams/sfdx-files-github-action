@@ -11,24 +11,24 @@ try {
     console.log('allFiles raw', allFiles);
 
     let sfFilePaths = [];
-    let sfTestFilePaths = [];
+    let sfTestNames = [];
     allFiles.forEach(filePath => {
         if (filePath.indexOf('force-app/main/default') === 0 && !sfFilePaths.find(path => path === filePath))
             sfFilePaths.push(filePath);
 
         var filename = filePath.split("/").pop();
-        if (filename.toLowerCase().includes('test') && filename.endsWith('.cls') && !sfTestFilePaths.find(path => path === filePath))
-            sfTestFilePaths.push(filePath);
+        if (filename.toLowerCase().includes('test') && filename.endsWith('.cls') && !sfTestNames.find(path => path === filePath))
+            sfTestNames.push(filename.replace('.cls', ''));
     });
 
     var sfFilePathsComma = sfFilePaths.join(',')
-    var sfTestFilePathsComma = sfTestFilePaths.join(',')
+    var sfTestNamesComma = sfTestNames.join(',')
 
     console.log('sfFilePathsComma', sfFilePathsComma);
-    console.log('sfTestFilePathsComma', sfTestFilePathsComma);
+    console.log('sfTestNamesComma', sfTestNamesComma);
     
     core.setOutput("files-to-deploy", sfFilePathsComma);
-    core.setOutput("test-files", sfTestFilePathsComma);
+    core.setOutput("test-files", sfTestNamesComma);
 
     // Get the JSON webhook payload for the event that triggered the workflow
     //const payload = JSON.stringify(github.context.payload, undefined, 2)
